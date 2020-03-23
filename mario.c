@@ -40,12 +40,8 @@ int main(void)
             {
                 printf("#"); //brick
             }
-            else
-            {
-                printf(" "); //empty
-            }
+            
         }
-
         printf("\n"); //new line
     }
 }
