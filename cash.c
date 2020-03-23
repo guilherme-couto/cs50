@@ -4,19 +4,41 @@
 
 int main(void)
 {
-    float change;
+    float dollars;
 
     do
     {
-       change = get_float("How much is owed? $");
+       dollars = get_float("How much dollars is owed? $");
     }
-    while (change < 0.0); //only positive value
+    while (dollars < 0.0); //only positive value
 
-    int q = change / 0.25; //quarters
-    int d = (change - (q * 0.25)) / 0.1; //dimes
-    int n = (change - (q * 0.25) - (d * 0.1)) / 0.05; //nickels
-    int p = 1 + (change - (q * 0.25) - (d * 0.1) - (n * 0.05)) / 0.01; //pennies
-    
+    int change = round(dollars * 100);
+    int q = 0, d = 0, n = 0, p = 0;
+
+    while (change / 25 > 0) //quarters
+    {
+        q ++;
+        change -=25;
+    }
+
+    while (change / 10 > 0) //dimes
+    {
+        d ++;
+        change -=10;
+    }
+
+    while (change / 5 > 0) //nickels
+    {
+        n ++;
+        change -=5;
+    }
+
+    while (change / 1 > 0) //pennies
+    {
+        p ++;
+        change -=1;
+    }
+
     printf("%d\n", q + d + n + p);
-     
+         
 }
