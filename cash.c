@@ -8,7 +8,7 @@ int main(void)
 
     do
     {
-       dollars = get_float("How much dollars is owed? $");
+        dollars = get_float("How much dollars is owed? $");
     }
     while (dollars < 0.0); //only positive value
 
@@ -18,25 +18,25 @@ int main(void)
     while (change / 25 > 0) //quarters
     {
         q ++;
-        change -=25;
+        change -= 25;
     }
 
     while (change / 10 > 0) //dimes
     {
         d ++;
-        change -=10;
+        change -= 10;
     }
 
     while (change / 5 > 0) //nickels
     {
         n ++;
-        change -=5;
+        change -= 5;
     }
 
     while (change / 1 > 0) //pennies
     {
         p ++;
-        change -=1;
+        change -= 1;
     }
 
     printf("%d\n", q + d + n + p);
