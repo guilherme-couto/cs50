@@ -14,10 +14,9 @@ int main(void)
 
     int q = change / 0.25; //quarters
     int d = (change - (q * 0.25)) / 0.1; //dimes
-    int n = (change - (q * 0.25) - (d * 0.1)) / 0.05;
-    int p = (change - (q * 0.25) - (d * 0.1) - (n * 0.05)) / 0.01;
+    int n = (change - (q * 0.25) - (d * 0.1)) / 0.05; //nickels
+    int p = 1 + (change - (q * 0.25) - (d * 0.1) - (n * 0.05)) / 0.01; //pennies
     
     printf("%d\n", q + d + n + p);
-
-    
+     
 }
