@@ -6,9 +6,9 @@ int main(void)
 {
     long card = get_long("Card number: ");
    
-    if ((card / (pow(10, 12))) == 0 || (card / (pow(10, 16))) > 0) //only card numbers
+    if ((card / (pow(10, 12))) == 0) //only card numbers
     {
-        printf("INVALID\n");
+        printf("INVALID1\n");
     }
 
     else
@@ -48,7 +48,7 @@ int main(void)
 
         if ((fsum % 10) != 0)
         {
-            printf("INVALID\n");
+            printf("INVALID2\n");
         }
 
         else if (amex == 34 || amex == 37) //if amex
