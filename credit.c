@@ -8,7 +8,7 @@ int main(void)
    
     if ((card / (pow(10, 12))) == 0) //only card numbers
     {
-        printf("INVALID1\n");
+        printf("INVALID\n");
     }
 
     else
@@ -48,7 +48,7 @@ int main(void)
 
         if ((fsum % 10) != 0)
         {
-            printf("INVALID2\n");
+            printf("INVALID\n");
         }
 
         else if (amex == 34 || amex == 37) //if amex
@@ -64,6 +64,11 @@ int main(void)
         else if (master >= 51 && master <= 55) //if mastercard
         {
             printf("MASTERCARD\n");
+        }
+
+        else
+        {
+            printf("INVALID\n");
         }
 
     } 
