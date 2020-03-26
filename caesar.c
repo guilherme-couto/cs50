@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 bool validkey (int size, string cmdline[]);
-//char crypto (int k, string pln);
 
 int main (int argc, string argv[])
 {
@@ -15,46 +14,39 @@ int main (int argc, string argv[])
 
     int k = atoi(argv[1]);
     string pln = get_string("plaintext: ");
-    string cph = {0};
+
 
     for (int i = 0, m = strlen(pln); i < m; i ++)
     {
         //trocando minusculas
-        if ((char) pln[i] >= 'a' && (char) pln[i] <= 'z')
+        if (pln[i] >= 'a' && pln[i] <= 'z')
         {
-            if (((char) (pln[i] + k)) > 'z')
+            if ((pln[i] + k) > 'z') //caso ultrapasse z
             {
-                cph[i] = pln[i] + k - 26 - (26 * (k / 26));
+                pln[i] = pln[i] + (k % 26);
             }
             else
             {
-                cph[i] = pln[i] + k;
+                pln[i] = pln[i] + k;
             }
         }
 
         //trocando maiusculas
-        else if ((char) pln[i] >= 'A' && (char) pln[i] <= 'Z')
+        else if (pln[i] >= 'A' && pln[i] <= 'Z')
         {
-            if (((char) (pln[i] + k)) > 'Z')
+            if ((pln[i] + k) > 'Z') //caso ultrapasse Z
             {
-                cph[i] = pln[i] + k - 26 - (26 * (k / 26));
+                pln[i] = pln[i] + + (k % 26);
             }
             else
             {
-                cph[i] = pln[i] + k;
+                pln[i] = pln[i] + k;
             }
         }
 
-        //mantendo demais caracteres
-        else
-        {
-            cph[i] = pln[i];
-        }
     }
 
-    //crypto (key, plain);
-
-    printf("ciphertext: %s\n", cph);
+    printf("ciphertext: %s\n", pln);
 
     return 0;
 
