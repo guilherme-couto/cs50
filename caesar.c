@@ -3,11 +3,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-bool validkey (int size, string cmdline[]);
+bool validkey(int size, string cmdline[]);
 
-int main (int argc, string argv[])
+int main(int argc, string argv[])
 {
-    if (validkey (argc, argv) == false)
+    if (validkey(argc, argv) == false)  //validar chave
     {
         return 1;
     }
@@ -45,7 +45,7 @@ int main (int argc, string argv[])
             {
                 if ((pln[i] + (k % 26)) > 'Z')
                 {
-                    pln[i] = pln[i] - (26 - k);
+                    pln[i] = pln[i] - (26 - (k % 26));
                 }
                 else
                 {
@@ -67,7 +67,7 @@ int main (int argc, string argv[])
 }
 
 
-bool validkey (int size, string cmdline[]) //validar a chave
+bool validkey(int size, string cmdline[])  //validar a chave
 {
     if (size != 2) //just one key
     {
