@@ -23,7 +23,14 @@ int main (int argc, string argv[])
         {
             if ((pln[i] + k) > 'z') //caso ultrapasse z
             {
-                pln[i] = pln[i] + (k % 26);
+                if ((pln[i] + (k % 26)) > 'z')
+                {
+                    pln[i] = pln[i] - (26 - (k % 26));
+                }
+                else
+                {
+                    pln[i] = pln[i] + (k % 26);
+                }
             }
             else
             {
@@ -36,7 +43,14 @@ int main (int argc, string argv[])
         {
             if ((pln[i] + k) > 'Z') //caso ultrapasse Z
             {
-                pln[i] = pln[i] + + (k % 26);
+                if ((pln[i] + (k % 26)) > 'Z')
+                {
+                    pln[i] = pln[i] - (26 - k);
+                }
+                else
+                {
+                    pln[i] = pln[i] + (k % 26);
+                }
             }
             else
             {
