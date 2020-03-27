@@ -86,12 +86,16 @@ bool validkey(int size, string cmdline[])  //validar a chave
         }
         else
         {
-            for (int a = 0, b = 1; cmdline[1][b] != '\0'; a ++, b ++) //não ter letras repetidas
+            for (int a = 0; cmdline[1][a] != '\0'; a ++) //não ter letras repetidas
             {
-                if (cmdline[1][a] == cmdline[1][b] || cmdline[1][a] == (cmdline[1][b] + 32) || cmdline[1][a] == (cmdline[1][b] - 32))
+                for (int b = 0; cmdline[1][b] != '\0'; b++)
                 {
-                    printf("Key must not contain repeated characters.\n");
-                    return false;
+                    if (cmdline[1][a] == cmdline[1][b] || cmdline[1][a] == (cmdline[1][b] + 32) || cmdline[1][a] == (cmdline[1][b] - 32))
+                    {
+                        printf("Key must not contain repeated characters.\n");
+                        return false;
+                    }
+
                 }
             }
         }
