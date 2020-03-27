@@ -86,9 +86,9 @@ bool validkey(int size, string cmdline[])  //validar a chave
         }
         else
         {
-            for (int a = 0; cmdline[1][a] != '\0'; a ++) //não ter letras repetidas
+            for (int a = 0; cmdline[1][a] == '\0'; a ++) //não ter letras repetidas
             {
-                for (int b = 1; cmdline[1][b] != '\0'; b++)
+                for (int b = 1; cmdline[1][b] == '\0'; b++)
                 {
                     if (cmdline[1][a] == cmdline[1][b] || cmdline[1][a] == (cmdline[1][b] + 32) || cmdline[1][a] == (cmdline[1][b] - 32))
                     {
