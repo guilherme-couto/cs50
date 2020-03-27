@@ -35,7 +35,7 @@ int main(void)
         return 0;
     }
 
-    printf("Grade: %.0f\n", round(index)); //demais casos
+    printf("Grade %.0f\n", round(index)); //demais casos
 
 
 }
