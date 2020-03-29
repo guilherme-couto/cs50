@@ -85,20 +85,26 @@ void print_winner(void)
 
     int k = 0;
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int j = 1; j < candidate_count; j++)
     {
-        for (int j = i + 1; j < candidate_count; j++)
+        if (candidates[j].votes > candidates[win[k]].votes)
         {
-            if (candidates[j].votes > candidates[i].votes)
+            if (k != 0)
+            {
+                k = 0;
+                win[0] = j;
+            }
+
+            else
             {
                 win[0] = j;
             }
-            else if (candidates[j].votes == candidates[i].votes)
-            {
-                k ++;
-                win[k] = j;
-            }
 
+        }
+        else if (candidates[j].votes == candidates[win[k]].votes)
+        {
+            k ++;
+            win[k] = j;
         }
     }
 
