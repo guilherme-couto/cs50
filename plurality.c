@@ -100,12 +100,14 @@ void print_winner(void)
         }
     }
 
+    int aux = 0;
+
     do
     {
         printf("%s\n", candidates[win[k]].name);
-        k --;
+        aux ++;
     }
-    while (k >= 0);
+    while (aux <= k);
 
     return;
 }
