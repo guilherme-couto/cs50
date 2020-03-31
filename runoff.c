@@ -225,16 +225,19 @@ bool is_tie(int min)
         if (!candidates[i].eliminated)
         {
             int aux = 0;
+            int cand_remain = 0;
 
             for (int j = 0; j < candidate_count; j++)
             {
                 if (candidates[j].votes == min)
                 {
-                    aux ++;
+                    aux ++; //candidatos com a mesma qntd de votos
                 }
+
+                cand_remain ++;
             }
 
-            if (aux != 1) //mais de um candidato com o mínimo de votos
+            if (aux == cand_remain) //todos os candidatos que sobram tendo a mesma qntd de votos
             {
                 return true;
             }
