@@ -200,13 +200,13 @@ int find_min(void)
     for (int i = 0; i < candidate_count; i++)
     {
 
-        if (!candidates[i].eliminated)
+        if (!candidates[i].eliminated) //CORRIGIR!!!!!!!
         {
             int aux = candidates[i].votes;
 
             for (int j = 0; j < candidate_count; j++)
             {
-                if (candidates[j].votes < candidates[i].votes)
+                if (!candidates[j].eliminated && candidates[j].votes < candidates[i].votes)
                 {
                     aux = candidates[j].votes;
                 }
@@ -222,33 +222,26 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
+    int remaining = 0, aux = 0;
+
     for (int i = 0; i < candidate_count; i++)
     {
+
         if (!candidates[i].eliminated)
         {
-            int aux = 0;
-            int cand_remain = 0;
+            remaining ++;
 
-            for (int j = 0; j < candidate_count; j++)
+            if (candidates[i].votes == min)
             {
-                if (candidates[j].votes == min)
-                {
-                    aux ++; //candidatos com a mesma qntd de votos
-                }
-
-                cand_remain ++;
-            }
-
-            if (aux == cand_remain) //todos os candidatos que sobram tendo a mesma qntd de votos
-            {
-                return true;
-            }
-
-            if (aux != 1)
-            {
-                return true;
+                aux ++;
             }
         }
+
+    }
+
+    if (remaining == aux)
+    {
+        return true;
     }
 
 
