@@ -241,6 +241,11 @@ bool is_tie(int min)
             {
                 return true;
             }
+
+            if (aux != 1)
+            {
+                return true;
+            }
         }
     }
 
