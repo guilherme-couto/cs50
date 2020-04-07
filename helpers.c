@@ -32,36 +32,42 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             //atualizando RED
             //caso seja maior que 255
-            if ((round((0.393 * image[i][j].rgbtRed) + (0.769 * image[i][j].rgbtGreen) + (0.189 * image[i][j].rgbtBlue))) > 255)
+            int total = round((0.393 * image[i][j].rgbtRed) + (0.769 * image[i][j].rgbtGreen) + (0.189 * image[i][j].rgbtBlue));
+
+            if (total > 255)
             {
                 image[i][j].rgbtRed = 255;
             }
             else
             {
-                image[i][j].rgbtRed = round((0.393 * image[i][j].rgbtRed) + (0.769 * image[i][j].rgbtGreen) + (0.189 * image[i][j].rgbtBlue));
+                image[i][j].rgbtRed = total;
             }
 
 
             //atualizando GREEN
             //caso seja maior que 255
-            if ((round((0.349 * image[i][j].rgbtRed) + (0.686 * image[i][j].rgbtGreen) + (0.168 * image[i][j].rgbtBlue))) > 255)
+            total = round((0.349 * image[i][j].rgbtRed) + (0.686 * image[i][j].rgbtGreen) + (0.168 * image[i][j].rgbtBlue));
+
+            if (total > 255)
             {
                 image[i][j].rgbtGreen = 255;
             }
             else
             {
-                image[i][j].rgbtGreen = round((0.349 * image[i][j].rgbtRed) + (0.686 * image[i][j].rgbtGreen) + (0.168 * image[i][j].rgbtBlue));
+                image[i][j].rgbtGreen = total;
             }
 
             //atualizando BLUE
             //caso seja maior que 255
-            if ((round((0.272 * image[i][j].rgbtRed) + (0.534 * image[i][j].rgbtGreen) + (0.131 * image[i][j].rgbtBlue))) > 255)
+            total = round((0.272 * image[i][j].rgbtRed) + (0.534 * image[i][j].rgbtGreen) + (0.131 * image[i][j].rgbtBlue));
+
+            if (total > 255)
             {
                 image[i][j].rgbtBlue = 255;
             }
             else
             {
-                image[i][j].rgbtBlue = round((0.272 * image[i][j].rgbtRed) + (0.534 * image[i][j].rgbtGreen) + (0.131 * image[i][j].rgbtBlue));
+                image[i][j].rgbtBlue = total;
             }
         }
     }
