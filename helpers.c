@@ -11,12 +11,12 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             //média das três cores
-            int avg = round(((image[i][j].rgbtBlue + image[i][j].rgbtRed + image[i][j].rgbtGreen) / 3));
+            int sum = image[i][j].rgbtBlue + image[i][j].rgbtRed + image[i][j].rgbtGreen;
 
             //atualizando para a média
-            image[i][j].rgbtBlue = avg;
-            image[i][j].rgbtRed = avg;
-            image[i][j].rgbtGreen = avg;
+            image[i][j].rgbtBlue = round(sum / 3);
+            image[i][j].rgbtRed = round(sum / 3);
+            image[i][j].rgbtGreen = round(sum / 3);
         }
     }
 
