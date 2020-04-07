@@ -26,6 +26,8 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE nimage[height][width];
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -36,11 +38,11 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
             if (total > 255)
             {
-                image[i][j].rgbtRed = 255;
+                nimage[i][j].rgbtRed = 255;
             }
             else
             {
-                image[i][j].rgbtRed = total;
+                nimage[i][j].rgbtRed = total;
             }
 
 
@@ -50,11 +52,11 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
             if (total > 255)
             {
-                image[i][j].rgbtGreen = 255;
+                nimage[i][j].rgbtGreen = 255;
             }
             else
             {
-                image[i][j].rgbtGreen = total;
+                nimage[i][j].rgbtGreen = total;
             }
 
             //atualizando BLUE
@@ -63,12 +65,22 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
             if (total > 255)
             {
-                image[i][j].rgbtBlue = 255;
+                nimage[i][j].rgbtBlue = 255;
             }
             else
             {
-                image[i][j].rgbtBlue = total;
+                nimage[i][j].rgbtBlue = total;
             }
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtRed = nimage[i][j].rgbtRed;
+            image[i][j].rgbtGreen = nimage[i][j].rgbtGreen;
+            image[i][j].rgbtBlue = nimage[i][j].rgbtBlue;
         }
     }
 
