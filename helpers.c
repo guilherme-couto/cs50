@@ -133,9 +133,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             //atualização dos bytes para cópia blur
-            nova[i][j].rgbtRed = round(sumR / 9);
-            nova[i][j].rgbtGreen = round(sumG / 9);
-            nova[i][j].rgbtBlue = round(sumB / 9);
+            nova[i][j].rgbtRed = round(sumR / 9.0);
+            nova[i][j].rgbtGreen = round(sumG / 9.0);
+            nova[i][j].rgbtBlue = round(sumB / 9.0);
 
         }
     }
@@ -162,9 +162,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 6);
-                nova[i][j].rgbtGreen = round(sumG / 6);
-                nova[i][j].rgbtBlue = round(sumB / 6);
+                nova[i][j].rgbtRed = round(sumR / 6.0);
+                nova[i][j].rgbtGreen = round(sumG / 6.0);
+                nova[i][j].rgbtBlue = round(sumB / 6.0);
             }
 
             else
@@ -181,9 +181,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 6);
-                nova[i][j].rgbtGreen = round(sumG / 6);
-                nova[i][j].rgbtBlue = round(sumB / 6);
+                nova[i][j].rgbtRed = round(sumR / 6.0);
+                nova[i][j].rgbtGreen = round(sumG / 6.0);
+                nova[i][j].rgbtBlue = round(sumB / 6.0);
             }
         }
     }
@@ -210,9 +210,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 6);
-                nova[i][j].rgbtGreen = round(sumG / 6);
-                nova[i][j].rgbtBlue = round(sumB / 6);
+                nova[i][j].rgbtRed = round(sumR / 6.0);
+                nova[i][j].rgbtGreen = round(sumG / 6.0);
+                nova[i][j].rgbtBlue = round(sumB / 6.0);
             }
 
             else
@@ -229,9 +229,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 6);
-                nova[i][j].rgbtGreen = round(sumG / 6);
-                nova[i][j].rgbtBlue = round(sumB / 6);
+                nova[i][j].rgbtRed = round(sumR / 6.0);
+                nova[i][j].rgbtGreen = round(sumG / 6.0);
+                nova[i][j].rgbtBlue = round(sumB / 6.0);
             }
         }
     }
@@ -258,9 +258,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 4);
-                nova[i][j].rgbtGreen = round(sumG / 4);
-                nova[i][j].rgbtBlue = round(sumB / 4);
+                nova[i][j].rgbtRed = round(sumR / 4.0);
+                nova[i][j].rgbtGreen = round(sumG / 4.0);
+                nova[i][j].rgbtBlue = round(sumB / 4.0);
             }
 
             else if (i == 0 && j == width - 1)
@@ -277,9 +277,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 4);
-                nova[i][j].rgbtGreen = round(sumG / 4);
-                nova[i][j].rgbtBlue = round(sumB / 4);
+                nova[i][j].rgbtRed = round(sumR / 4.0);
+                nova[i][j].rgbtGreen = round(sumG / 4.0);
+                nova[i][j].rgbtBlue = round(sumB / 4.0);
             }
 
             else if (i == height - 1 && j == 0)
@@ -296,9 +296,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 4);
-                nova[i][j].rgbtGreen = round(sumG / 4);
-                nova[i][j].rgbtBlue = round(sumB / 4);
+                nova[i][j].rgbtRed = round(sumR / 4.0);
+                nova[i][j].rgbtGreen = round(sumG / 4.0);
+                nova[i][j].rgbtBlue = round(sumB / 4.0);
             }
 
             else if (i == height - 1 && j == width - 1)
@@ -315,9 +315,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
 
                 //atualização dos bytes para cópia blur
-                nova[i][j].rgbtRed = round(sumR / 4);
-                nova[i][j].rgbtGreen = round(sumG / 4);
-                nova[i][j].rgbtBlue = round(sumB / 4);
+                nova[i][j].rgbtRed = round(sumR / 4.0);
+                nova[i][j].rgbtGreen = round(sumG / 4.0);
+                nova[i][j].rgbtBlue = round(sumB / 4.0);
             }
         }
     }
