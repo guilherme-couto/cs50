@@ -67,6 +67,12 @@ int main(int argc, char *argv[])
             //printf("Alou\n");
             fclose(img);
             i ++;
+
+            if (i == 49)
+            {
+                return 0;
+            }
+
             sprintf(argv[1], "%03i.jpg", i);
             img = fopen(argv[1], "w");
 
