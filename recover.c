@@ -68,14 +68,13 @@ int main(int argc, char *argv[])
             fclose(img);
             i ++;
 
+            sprintf(argv[1], "%03i.jpg", i);
+            img = fopen(argv[1], "w");
+
             if (i == 49)
             {
                 return 0;
             }
-
-            sprintf(argv[1], "%03i.jpg", i);
-            img = fopen(argv[1], "w");
-
 
         }
 
