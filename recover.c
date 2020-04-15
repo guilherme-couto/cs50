@@ -63,6 +63,11 @@ int main(int argc, char *argv[])
             fclose(img);
             i ++;
 
+            if (i == 49)
+            {
+                fclose(file);
+                return 0;
+            }
 
             sprintf(argv[1], "%03i.jpg", i);
             img = fopen(argv[1], "w");
