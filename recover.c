@@ -25,7 +25,11 @@ int main(int argc, char *argv[])
 
 
     //read file
-    BYTE arr[512];
+    BYTE *arr = malloc(512 * sizeof(BYTE));
+    if (arr == NULL)
+    {
+        return 1;
+    }
 
     //encontrar o primeiro jpeg
     do
@@ -45,17 +49,11 @@ int main(int argc, char *argv[])
 
         if (arr[0] == 0xff && arr[1] == 0xd8 && arr[2] == 0xff && (arr[3] & 0xf0) == 0xe0)
         {
-            for (int j = 0; j < 512; j++)
-            {
-                if ((int)arr[j] == EOF)
-                {
-                    printf("AQUI\n");
-                    return 0;
-                }
-            }
+
 
             fwrite(arr, sizeof(BYTE), 512, img);
             fread(arr, sizeof(BYTE), 512, file);
+
 
             while (arr[0] != 0xff || arr[1] != 0xd8 || arr[2] != 0xff || (arr[3] & 0xf0) != 0xe0)
             {
@@ -68,20 +66,15 @@ int main(int argc, char *argv[])
             fclose(img);
             i ++;
 
+
             sprintf(argv[1], "%03i.jpg", i);
             img = fopen(argv[1], "w");
 
-            if (i == 49)
-            {
-                return 0;
-            }
-
         }
 
-        //printf("uas\n");
-        //return 0;
     }
-
+    free(arr);
     fclose(file);
+    return 0;
 
 }
