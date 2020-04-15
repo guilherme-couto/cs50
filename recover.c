@@ -25,11 +25,8 @@ int main(int argc, char *argv[])
 
 
     //read file
-    BYTE *arr = malloc(512 * sizeof(BYTE));
-    if (arr == NULL)
-    {
-        return 1;
-    }
+    BYTE arr[512];
+
 
     //encontrar o primeiro jpeg
     do
@@ -73,7 +70,7 @@ int main(int argc, char *argv[])
         }
 
     }
-    free(arr);
+    //free(arr);
     fclose(file);
     return 0;
 
