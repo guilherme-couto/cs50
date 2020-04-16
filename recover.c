@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     int i = 0;
     sprintf(argv[1], "%03i.jpg", i);
     FILE *img = fopen(argv[1], "w");
-    fwrite(arr, sizeof(BYTE), 512, img);
+    //fwrite(arr, sizeof(BYTE), 512, img);
 
     int c = 512;
     //continunar busca
@@ -49,16 +49,19 @@ int main(int argc, char *argv[])
         if (arr[0] == 0xff && arr[1] == 0xd8 && arr[2] == 0xff && (arr[3] & 0xf0) == 0xe0)
         {
 
+            fwrite(arr, sizeof(BYTE), c, img);
+            c = fread(arr, sizeof(BYTE), 512, file);
+            printf("%i ", c);
             //fwrite(arr, sizeof(BYTE), 512, img);
-            //c = fread(arr, sizeof(BYTE), c, file);
-            fwrite(arr, sizeof(BYTE), fread(arr, sizeof(BYTE), 512, file), img);
 
             while (arr[0] != 0xff || arr[1] != 0xd8 || arr[2] != 0xff || (arr[3] & 0xf0) != 0xe0)
             {
-                c = fread(arr, sizeof(BYTE), c, file);
+                fwrite(arr, sizeof(BYTE), c, img);
+                c = fread(arr, sizeof(BYTE), 512, file);
 
                 if (c < 512)
                 {
+                    printf("oi\n");
                     fwrite(arr, sizeof(BYTE), c, img);
                     fclose(img);
                     fclose(file);
@@ -67,7 +70,7 @@ int main(int argc, char *argv[])
                 else
                 {
                     fwrite(arr, sizeof(BYTE), c, img);
-                    //fread(arr, sizeof(BYTE), 512, file);
+                    fread(arr, sizeof(BYTE), 512, file);
                 }
             }
 
