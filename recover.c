@@ -49,9 +49,9 @@ int main(int argc, char *argv[])
         if (arr[0] == 0xff && arr[1] == 0xd8 && arr[2] == 0xff && (arr[3] & 0xf0) == 0xe0)
         {
 
-            fwrite(arr, sizeof(BYTE), c, img);
+            fwrite(arr, sizeof(BYTE), 512, img);
             c = fread(arr, sizeof(BYTE), 512, file);
-            printf("%i ", c);
+            //printf("%i ", c);
             //fwrite(arr, sizeof(BYTE), 512, img);
 
             while (arr[0] != 0xff || arr[1] != 0xd8 || arr[2] != 0xff || (arr[3] & 0xf0) != 0xe0)
@@ -61,17 +61,12 @@ int main(int argc, char *argv[])
 
                 if (c < 512)
                 {
-                    printf("oi\n");
                     fwrite(arr, sizeof(BYTE), c, img);
                     fclose(img);
                     fclose(file);
                     return 0;
                 }
-                else
-                {
-                    fwrite(arr, sizeof(BYTE), c, img);
-                    fread(arr, sizeof(BYTE), 512, file);
-                }
+
             }
 
             fclose(img);
