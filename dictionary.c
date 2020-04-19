@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #include "dictionary.h"
 
@@ -36,13 +37,15 @@ unsigned int num;
 
 
 // Returns true if word is in dictionary else false
+unsigned int word_hash(const char *word);
+
 bool check(const char *word)
 {
-    node *cursor = table[(hash(word))];
+    node *cursor = table[word_hash(word)];
 
     while (cursor != NULL)
     {
-        if (strcasecmp((cursor->word), word) == 0) // ALGUMA COISA AQUI
+        if (strcasecmp(word, cursor->word) == 0) // ALGUMA COISA AQUI
         {
             return true;
         }
@@ -53,6 +56,19 @@ bool check(const char *word)
     }
 
     return false;
+}
+
+unsigned int word_hash(const char *word)
+{
+    char *s = malloc(sizeof(char) * (strlen(word) + 1));
+    for (int i = 0; i <= strlen(word); i++)
+    {
+        s[i] = tolower(word[i]);
+    }
+    s[strlen(word) + 1] = '\0';
+    unsigned int nhash = hash(s);
+    free(s);
+    return nhash;
 }
 
 
