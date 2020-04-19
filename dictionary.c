@@ -65,7 +65,7 @@ unsigned int word_hash(const char *word)
     {
         s[i] = tolower(word[i]);
     }
-    s[strlen(word) + 1] = '\0';
+    //s[strlen(word) + 1] = '\0';
     unsigned int nhash = hash(s);
     free(s);
     return nhash;
