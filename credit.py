@@ -47,7 +47,7 @@ if card // pow(10, 12) == 4 or card // pow(10, 15) == 4:
 
 # if MASTER
 if card // pow(10, 14) >= 51 and card // pow(10, 14) <= 55:
-    print("MASTER")
+    print("MASTERCARD")
     exit(0)
 
 print("INVALID")
