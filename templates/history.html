@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead class="left">
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price</th>
+              <th scope="col">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in history %}
+                <tr class="left">
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ usd(lookup(row["symbol"])["price"]) }}</td>
+                    <td>{{ row["whn"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

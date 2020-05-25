@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead class="left">
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Name</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price</th>
+              <th scope="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot class="left">
+            <tr>
+                <td colspan="4"></td>
+                <td><strong>{{ usd(total) }}</strong></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for row in shares %}
+                <tr class="left">
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ lookup(row["symbol"])["name"] }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ usd(lookup(row["symbol"])["price"]) }}</td>
+                    <td>{{ usd(row["shares"] * lookup(row["symbol"])["price"]) }}</td>
+                </tr>
+            {% endfor %}
+            <tr class="left">
+                <td colspan="4"><strong>CASH</strong></td>
+                <td>{{ cash }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/add" role="button">Add Cash</a>
+{% endblock %}
