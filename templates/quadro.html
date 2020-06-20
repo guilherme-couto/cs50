@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quadro
+{% endblock %}
+
+{% block main %}
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for row in pedidos %}
+            <div class="col mb-4">
+                <div class="card shadow p-3 mb-5 bg-white rounded" style="height: 100">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ row["titulo"] }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><em>Número #{{ row["num"] }}</em></h6>
+                        <h6 class="card-subtitle mb-2 text-muted">R$ {{ row["valor"] }}</h6>
+                        <p class="card-text">{{ row["descri"] }}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Até {{ row["valid"][8] }}{{ row["valid"][9] }}/{{ row["valid"][5] }}{{ row["valid"][6] }}/{{ row["valid"][0] }}{{ row["valid"][1] }}{{ row["valid"][2] }}{{ row["valid"][3] }}
+                    </div>
+                </div>
+            </div>
+      {% endfor %}
+    </div>
+
+{% endblock %}
