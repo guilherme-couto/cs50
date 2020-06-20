@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ajudado
+{% endblock %}
+
+{% block main %}
+
+    <div class="alert alert-success mb-5" role="alert">
+        Obrigado pela ajuda! - veja aqui algumas <strong>informações importantes</strong>
+    </div>
+    <h4>Agora, é com vocês!</h4>
+    <h3>Entre em contato com <strong>{{ user[0]["nome"] }}</strong></h3>
+    <h5>Celular: {{ user[0]["cel"] }}</h5>
+    <h5 class="mb-5">Email: {{ user[0]["email"] }}</h5>
+    <h6 class="text-muted">Lembrando que o pedido só vale até <strong>{{ pedido[0]["valid"][8] }}{{ pedido[0]["valid"][9] }}/{{ pedido[0]["valid"][5] }}{{ pedido[0]["valid"][6] }}/{{ pedido[0]["valid"][0] }}{{ pedido[0]["valid"][1] }}{{ pedido[0]["valid"][2] }}{{ pedido[0]["valid"][3] }}</strong></h6>
+    <div class="card">
+        <h5 class="card-header">Número #{{ pedido[0]["num"] }} - R$ {{ pedido[0]["valor"] }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ pedido[0]["titulo"] }}</h5>
+            <p class="card-text">{{ pedido[0]["descri"] }}</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sobre
+{% endblock %}
+
+{% block main %}
+
+    <img src="/static/gente.png" class="img-fluid text-right" alt="Responsive image">
+    <h1 class="mb-4">Sobre</h1>
+    <p>Você já precisou comprar algum livro ou fazer inscrição em alguma prova, mas não tinha dinheiro suficiente?
+        Ou, quem sabe, você já teve alguma emergência financeira e não conseguiu fazer aquele curso que tanto queria. Resultado: frustrações.</p>
+    <p>Não seria bom ter alguém próximo que pudesse te ajudar nessas horas? Seria ótimo. Mas, e se não tiver ninguém ali na hora?
+        O MeAjudaAqui pretende aumentar suas opções. A gente não quer mais niguém desistindo de alguma coisa por não ter dinheiro suficiente.</p>
+    <p>E, como funciona? É simples. Você se cadastra na plataforma, seja para ajudar ou para ser ajudado. Daí, você clica em "Novo Pedido" e fornece algumas informações sobre ele, como o valor, a validade e uma breve descrição.
+        Seu pedido vai para o "Quadro" do site e qualquer pessoa do Brasil (ou do mundo) pode te ajudar.</p>
+    <p>Agora, como faço para ajudar? É mais simples ainda. Basta anotar o número de algum pedido que você realmente queira ajudar e colocá-lo na aba "Ajudar".
+        Ao fazer isso, te daremos o número e o email de quem fez o pedido. Caberá a você entrar em contato com a pessoa para combinar os detalhes do pagamento e, quem sabe, até mesmo fazer um novo amigo.</p>
+    <p class="mb-4">MeAjudaAqui é uma plataforma para auxiliar financeiramente pessoas nas pequenas coisas do dia a dia. Coisa rápida e prática, de um para um.
+        A gente acredita nas pessoas e nas microrrevoluções que a relação entre elas pode fazer. E você?</p>
+
+    {% if session.user_id %}
+        <a class="btn btn-outline-dark bt-roxo" href="/quadro" role="button">Quadro</a>
+    {% else %}
+        <a class="btn btn-outline-dark bt-roxo" href="/registrar" role="button">Registrar-se</a>
+    {% endif %}
+
+{% endblock %}

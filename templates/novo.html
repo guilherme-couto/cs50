@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Novo Pedido
+{% endblock %}
+
+{% block main %}
+
+    {% if mensagem is defined %}
+      <div class="alert alert-danger mb-5" role="alert">
+        {{ mensagem }}
+      </div>
+    {% endif %}
+    <form class="needs-validation" novalidate action="/novo" method="post">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="titulo">Título do Pedido</label>
+                <input type="text" class="form-control" name="titulo" required>
+                <div class="valid-feedback">Beleza!</div>
+                <div class="invalid-feedback">Por favor, informe um título para o pedido.</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-2 mb-3">
+                <label for="valor">Valor <small class="text-muted">entre 0,00 e 999,99</small></label>
+                <input type="text" class="form-control" name="valor" placeholder="ex: 150,00"  maxlength="6" minlength="3" required>
+                <div class="valid-feedback">Beleza!</div>
+                <div class="invalid-feedback">Por favor, informe um valor válido. Não use $, use apenas a vírgula.</div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="validade">Pra Quando?</label>
+                <input type="date" class="form-control" name="validade" pattern="[0-3]{1}[0-9]{1}/[0-1]{1}[0-9]{1}/[2]{1}[0-9]{1}[0-9]{1}[0-9]{1}" required>
+                <div class="valid-feedback">Beleza!</div>
+                <div class="invalid-feedback">Por favor, informe uma data válida.</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" name="descricao" rows="3" placeholder="conte mais sobre o seu pedido" maxlength="320" required></textarea>
+                <div class="valid-feedback">Beleza!</div>
+                <div class="invalid-feedback">Por favor, conte mais sobre o pedido.</div>
+            </div>
+        </div>
+        <button class="btn bg-roxo mb-5" style="color: white" type="submit">Fazer Pedido</button>
+    </form>
+
+    <img src="/static/friends.png" class="img-fluid text-left" alt="Responsive image">
+
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+{% endblock %}
